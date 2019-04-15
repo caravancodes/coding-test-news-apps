@@ -48,11 +48,12 @@
     <dimen name="dimen_profil_photo_list_info">50dp</dimen>
 
     <!--Sizes-->
-    <dimen name="text_size_title_big">24sp</dimen>
-    <dimen name="text_size_title_small">18sp</dimen>
-    <dimen name="text_size_title_medium">20sp</dimen>
-    <dimen name="text_size_medium">16sp</dimen>
-    <dimen name="text_size_small">10sp</dimen>
+    <dimen name="title_big">24sp</dimen>
+    <dimen name="title_medium">20sp</dimen>
+    <dimen name="title_small">18sp</dimen>
+    <dimen name="text_big">16sp</dimen>
+    <dimen name="text_medium">12sp</dimen>
+    <dimen name="text_small">10sp</dimen>
     <dimen name="min_height_info">300dp</dimen>
     <dimen name="min_height_list_bimbingan">95dp</dimen>
 
