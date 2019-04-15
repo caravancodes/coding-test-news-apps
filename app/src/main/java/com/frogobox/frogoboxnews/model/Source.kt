@@ -1,4 +1,11 @@
-package com.frogobox.frogoboxnews.view.adapters
+package com.frogobox.frogoboxnews.model
+
+import android.annotation.SuppressLint
+import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
+import java.util.*
+
 
 /**
  * Created by Faisal Amir
@@ -17,3 +24,14 @@ package com.frogobox.frogoboxnews.view.adapters
  * -----------------------------------------
  * id.amirisback.frogobox
  */
+
+@Parcelize
+data class Source (
+
+    @SerializedName("id")
+    var id: String? = null,
+
+    @SerializedName("name")
+    var name: String? = null
+
+) : Parcelable

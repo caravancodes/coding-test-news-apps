@@ -22,15 +22,30 @@ import kotlinx.android.parcel.Parcelize
  * id.amirisback.frogobox
  */
 @Parcelize
-data class News (
+data class Articles (
 
-    @SerializedName("status")
-    var status: String? = null,
+    @SerializedName("source")
+    var source: Source,
 
-    @SerializedName("totalResults")
-    var totalResults: String? = null,
+    @SerializedName("author")
+    var author: String? = null,
 
-    @SerializedName("articles")
-    var articles: List<Articles>
+    @SerializedName("title")
+    var title: String? = null,
+
+    @SerializedName("description")
+    var description: String? = null,
+
+    @SerializedName("url")
+    var url: String? = null,
+
+    @SerializedName("urlToImage")
+    var urlToImage: String? = null,
+
+    @SerializedName("publishedAt")
+    var publishedAt: String? = null,
+
+    @SerializedName("content")
+    var content: String? = null
 
 ) : Parcelable
