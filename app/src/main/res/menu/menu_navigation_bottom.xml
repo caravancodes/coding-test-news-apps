@@ -7,7 +7,7 @@
         android:title="@string/title_top_headline" />
 
     <item
-        android:id="@+id/navigation_team"
+        android:id="@+id/navigation_everything"
         android:icon="@drawable/ic_nav_everything"
         android:title="@string/title_everything" />
 

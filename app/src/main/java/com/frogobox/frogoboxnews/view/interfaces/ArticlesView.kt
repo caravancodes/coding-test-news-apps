@@ -1,5 +1,6 @@
 package com.frogobox.frogoboxnews.view.interfaces
 
+import com.frogobox.frogoboxnews.model.Articles
 import com.frogobox.frogoboxnews.model.News
 
 /**
@@ -19,11 +20,11 @@ import com.frogobox.frogoboxnews.model.News
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-interface NewsInterface {
+interface ArticlesView {
 
     fun showLoading()
     fun hideLoading()
-    fun onSuccess(newsObject : News)
-    fun onFailed()
+    fun onGetArticles(articles : List<Articles>)
+    fun onFailed(messageEror: String)
 
 }

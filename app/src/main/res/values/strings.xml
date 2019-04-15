@@ -1,9 +1,12 @@
 <resources>
-    <string name="app_name">FrogoBoxNews</string>
+    <string name="app_name">News Apps</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_top_headline">Top Headline</string>
     <string name="title_everything">Everything</string>
     <string name="dummy_string">dummy</string>
+    <string name="tab_general">General</string>
+    <string name="tab_technology">Technology</string>
+    <string name="text_content">Content</string>
 </resources>

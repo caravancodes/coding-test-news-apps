@@ -15,7 +15,9 @@ class TopHeadlineGeneralFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_top_headline_general, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_top_headline_general, container, false)
+
+        return rootView
     }
 
 

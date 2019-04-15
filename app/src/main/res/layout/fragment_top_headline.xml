@@ -10,7 +10,9 @@
             android:id="@+id/frg_top_tablyout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"/>
+            android:background="@color/colorPrimary"
+            app:tabTextColor="@color/colorTextWhiteOpacity"
+            app:tabSelectedTextColor="@color/colorTextWhite"/>
 
     <androidx.viewpager.widget.ViewPager
             android:id="@+id/frg_top_viewpager"

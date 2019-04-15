@@ -16,7 +16,9 @@ class EverythingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_everything, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_everything, container, false)
+
+        return rootView
     }
 
 
