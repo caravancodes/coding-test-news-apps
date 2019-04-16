@@ -1,4 +1,4 @@
-package com.frogobox.frogoboxnews.view.interfaces
+package com.frogobox.frogoboxnews.helper
 
 /**
  * Created by Faisal Amir
@@ -10,16 +10,15 @@ package com.frogobox.frogoboxnews.view.interfaces
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
  * E-mail   : faisalamircs@gmail.com
- * Line     : bullbee117
- * Phone    : 081357108568
  * Majors   : D3 Teknik Informatika 2016
  * Campus   : Telkom University
  * -----------------------------------------
- * id.amirisback.frogobox
+ * FrogoBox Software Industries
  */
-interface View {
 
-    fun onAttachView()
-    fun onDetachView()
+object Constant {
 
+    const val ON_START_PRESENTER = "onStart Presenter"
+    const val ON_GET_DATA = "Got data from remote repository"
+    const val ON_ERROR = "Error"
 }

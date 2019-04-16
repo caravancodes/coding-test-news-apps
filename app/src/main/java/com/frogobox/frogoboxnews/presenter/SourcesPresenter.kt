@@ -17,3 +17,4 @@ package com.frogobox.frogoboxnews.presenter
  * -----------------------------------------
  * id.amirisback.frogobox
  */
+class SourcesPresenter{}

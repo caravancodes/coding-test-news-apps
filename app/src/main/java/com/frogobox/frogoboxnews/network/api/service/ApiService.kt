@@ -1,4 +1,4 @@
-package com.frogobox.frogoboxnews.network.api
+package com.frogobox.frogoboxnews.network.api.service
 
 import com.frogobox.frogoboxnews.model.News
 import com.frogobox.frogoboxnews.network.bridge.ApiUrl.QUERY_API_KEY

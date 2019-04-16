@@ -21,7 +21,6 @@ import com.frogobox.frogoboxnews.BuildConfig
  */
 object ApiUrl {
 
-
     const val API_KEY = BuildConfig.NEWS_API_KEY
     const val BASE_URL = BuildConfig.NEWS_BASE_URL
     const val API_VERSION = BuildConfig.NEWS_API_VERSION
@@ -45,8 +44,5 @@ object ApiUrl {
     const val QUERY_SORT_BY = "sortBy"
     const val QUERY_LANGUAGE = "language"
     const val QUERY_SERACH = "q"
-
-
-
 
 }

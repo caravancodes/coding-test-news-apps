@@ -35,7 +35,7 @@ abstract class BaseActivity<T, V>: AppCompatActivity(), LifecycleObserver where 
         super.onCreate(savedInstanceState)
         instantiatePresenter()
         if (presenterInstance is BasePresenter<*>) {
-            presenterInstance?.bind(this as V)
+            presenterInstance?.onAttach(this as V)
             lifecycle.addObserver(presenter as LifecycleObserver)
             lifecycle.addObserver(this)
             (presenterInstance as BasePresenter<*>).savedState = savedInstanceState
@@ -59,7 +59,7 @@ abstract class BaseActivity<T, V>: AppCompatActivity(), LifecycleObserver where 
 
     override fun onDestroy() {
         super.onDestroy()
-        presenterInstance?.unbind()
+        presenterInstance?.onDetach()
         lifecycle.removeObserver(presenter as LifecycleObserver)
         lifecycle.removeObserver(this)
     }

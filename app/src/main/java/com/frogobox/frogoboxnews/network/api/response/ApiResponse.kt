@@ -1,4 +1,10 @@
-package com.frogobox.frogoboxnews.view.interfaces
+package com.frogobox.frogoboxnews.network.api.response
+
+import com.frogobox.frogoboxnews.model.News
+import com.frogobox.frogoboxnews.network.bridge.ApiUrl
+import retrofit2.Call
+import retrofit2.http.GET
+import retrofit2.http.Query
 
 /**
  * Created by Faisal Amir
@@ -10,16 +16,14 @@ package com.frogobox.frogoboxnews.view.interfaces
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
  * E-mail   : faisalamircs@gmail.com
- * Line     : bullbee117
- * Phone    : 081357108568
  * Majors   : D3 Teknik Informatika 2016
  * Campus   : Telkom University
  * -----------------------------------------
- * id.amirisback.frogobox
+ * FrogoBox Software Industries
  */
-interface Presenter<T : View> {
+interface ApiResponse {
 
-    fun onAttach(view: T)
-    fun onDetach()
+    fun getTopHeadline(country : String, category : String)
+    fun getEverything(category : String, q : String)
 
 }

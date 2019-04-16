@@ -1,13 +1,11 @@
 package com.frogobox.frogoboxnews.network.bridge
 
-import com.frogobox.frogoboxnews.network.api.ApiService
 import com.frogobox.frogoboxnews.network.bridge.ApiUrl.BASE_URL
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 /**

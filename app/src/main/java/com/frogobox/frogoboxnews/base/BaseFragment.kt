@@ -28,7 +28,7 @@ abstract class BaseFragment<T, V>: Fragment() where V: BaseContractView, T : Bas
     override fun onAttach(context: Context) {
         super.onAttach(context)
         instantiatePresenter()
-        presenterInstance?.bind(this as V)
+        presenterInstance?.onAttach(this as V)
         lifecycle.addObserver(presenter as LifecycleObserver)
         notifyOnCreate = true
     }
@@ -55,7 +55,7 @@ abstract class BaseFragment<T, V>: Fragment() where V: BaseContractView, T : Bas
 
     override fun onDetach() {
         super.onDetach()
-        presenterInstance?.unbind()
+        presenterInstance?.onDetach()
     }
 
 }

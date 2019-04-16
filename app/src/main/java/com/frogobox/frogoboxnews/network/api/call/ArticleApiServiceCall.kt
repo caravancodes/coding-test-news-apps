@@ -1,8 +1,9 @@
-package com.frogobox.frogoboxnews.network.bridge
+package com.frogobox.frogoboxnews.network.api.call
 
 import com.frogobox.frogoboxnews.model.News
-import com.frogobox.frogoboxnews.network.api.ApiResponse
-import com.frogobox.frogoboxnews.network.api.ApiService
+import com.frogobox.frogoboxnews.network.api.response.ApiResponse
+import com.frogobox.frogoboxnews.network.api.service.ApiService
+import com.frogobox.frogoboxnews.network.bridge.ApiClient
 import com.frogobox.frogoboxnews.view.interfaces.repository.ArticlesView
 import retrofit2.Call
 import retrofit2.Response
@@ -23,9 +24,9 @@ import retrofit2.Response
  * FrogoBox Software Industries
  */
 
-class ApiServiceCall(var articlesResult : ArticlesView): ApiResponse{
+class ArticleApiServiceCall(var articlesResult : ArticlesView): ApiResponse {
 
-    val NewsDbApi =  ApiClient.createService(ApiService::class.java)
+    val NewsDbApi = ApiClient.createService(ApiService::class.java)
 
     override fun getTopHeadline(country: String, category: String) {
 
