@@ -1,11 +1,13 @@
-package com.frogobox.frogoboxnews.helper
+package com.frogobox.frogoboxnews.view.interfaces.repository
+
+import com.frogobox.frogoboxnews.model.News
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * FrogoBoxNews
- * Copyright (C) 15/04/2019.
+ * Copyright (C) 16/04/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -17,3 +19,9 @@ package com.frogobox.frogoboxnews.helper
  * -----------------------------------------
  * id.amirisback.frogobox
  */
+interface NewsView {
+
+    fun onGetNews(news : News)
+    fun onFailed(messageEror: String)
+
+}

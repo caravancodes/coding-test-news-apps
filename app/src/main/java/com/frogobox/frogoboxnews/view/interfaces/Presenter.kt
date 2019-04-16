@@ -1,7 +1,5 @@
 package com.frogobox.frogoboxnews.view.interfaces
 
-import com.frogobox.frogoboxnews.model.News
-
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -19,11 +17,9 @@ import com.frogobox.frogoboxnews.model.News
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-interface NewsView {
+interface Presenter<T : View> {
 
-    fun showLoading()
-    fun hideLoading()
-    fun onGetNews(news : News)
-    fun onFailed(messageEror: String)
+    fun onAttach(view: T)
+    fun onDetach()
 
 }

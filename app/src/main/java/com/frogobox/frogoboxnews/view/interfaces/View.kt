@@ -1,7 +1,5 @@
 package com.frogobox.frogoboxnews.view.interfaces
 
-import com.frogobox.frogoboxnews.model.Source
-
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -19,11 +17,9 @@ import com.frogobox.frogoboxnews.model.Source
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-interface SourcesView {
+interface View {
 
-    fun showLoading()
-    fun hideLoading()
-    fun onGetSources(sources : List<Source>)
-    fun onFailed(messageEror: String)
+    fun onAttachView()
+    fun onDetachView()
 
 }

@@ -1,5 +1,15 @@
 package com.frogobox.frogoboxnews.network.bridge
 
+import com.frogobox.frogoboxnews.network.api.ApiService
+import com.frogobox.frogoboxnews.network.bridge.ApiUrl.BASE_URL
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.squareup.moshi.Moshi
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -17,3 +27,26 @@ package com.frogobox.frogoboxnews.network.bridge
  * -----------------------------------------
  * id.amirisback.frogobox
  */
+object ApiClient {
+    private val retrofit: Retrofit by lazy {
+        val moshi = Moshi.Builder()
+            .build()
+
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(httpClient)
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .build()
+    }
+
+    private val httpClient: OkHttpClient = OkHttpClient.Builder()
+        .addInterceptor(AuthInterceptor())
+        .addInterceptor(HttpLoggingInterceptor())
+        .build()
+
+    fun <T> createService(serviceClass:  Class<T>): T {
+        return retrofit
+            .create(serviceClass)
+    }
+}

@@ -31,13 +31,11 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET(URL_TOP_HEADLINE)
-    fun getTopHeadline(@Query(QUERY_API_KEY) apiKey : String,
-                       @Query(QUERY_COUNRTY) country : String,
+    fun getTopHeadline(@Query(QUERY_COUNRTY) country : String,
                        @Query(QUERY_CATEGORY) category : String): Call<News>
 
     @GET(URL_EVERYTHING)
-    fun getEverything(@Query(QUERY_API_KEY) apiKey : String,
-                      @Query(QUERY_CATEGORY) category : String,
+    fun getEverything(@Query(QUERY_CATEGORY) category : String,
                       @Query(QUERY_SERACH) q : String): Call<News>
 
 }

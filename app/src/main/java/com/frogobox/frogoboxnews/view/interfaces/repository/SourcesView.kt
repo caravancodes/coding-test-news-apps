@@ -1,14 +1,13 @@
-package com.frogobox.frogoboxnews.view.interfaces
+package com.frogobox.frogoboxnews.view.interfaces.repository
 
-import com.frogobox.frogoboxnews.model.Articles
-import com.frogobox.frogoboxnews.model.News
+import com.frogobox.frogoboxnews.model.Source
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * FrogoBoxNews
- * Copyright (C) 15/04/2019.
+ * Copyright (C) 16/04/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -20,11 +19,9 @@ import com.frogobox.frogoboxnews.model.News
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-interface ArticlesView {
+interface SourcesView {
 
-    fun showLoading()
-    fun hideLoading()
-    fun onGetArticles(articles : List<Articles>)
+    fun onGetSources(sources : List<Source>)
     fun onFailed(messageEror: String)
 
 }
