@@ -1,5 +1,6 @@
 package com.frogobox.frogoboxnews.network.api.response
 
+import com.frogobox.frogoboxnews.model.Articles
 import com.frogobox.frogoboxnews.model.News
 import com.frogobox.frogoboxnews.network.bridge.ApiUrl
 import retrofit2.Call
@@ -23,7 +24,7 @@ import retrofit2.http.Query
  */
 interface ApiResponse {
 
-    fun getTopHeadline(country : String, category : String)
-    fun getEverything(category : String, q : String)
+    suspend fun getTopHeadline(country : String, category : String) : List<Articles>
+    suspend fun getEverything(category : String, q : String) : List<Articles>
 
 }

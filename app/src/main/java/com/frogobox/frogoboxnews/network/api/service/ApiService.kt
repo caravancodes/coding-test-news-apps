@@ -1,13 +1,12 @@
 package com.frogobox.frogoboxnews.network.api.service
 
 import com.frogobox.frogoboxnews.model.News
-import com.frogobox.frogoboxnews.network.bridge.ApiUrl.QUERY_API_KEY
 import com.frogobox.frogoboxnews.network.bridge.ApiUrl.QUERY_CATEGORY
 import com.frogobox.frogoboxnews.network.bridge.ApiUrl.QUERY_COUNRTY
 import com.frogobox.frogoboxnews.network.bridge.ApiUrl.QUERY_SERACH
 import com.frogobox.frogoboxnews.network.bridge.ApiUrl.URL_EVERYTHING
 import com.frogobox.frogoboxnews.network.bridge.ApiUrl.URL_TOP_HEADLINE
-import retrofit2.Call
+import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -32,10 +31,10 @@ interface ApiService {
 
     @GET(URL_TOP_HEADLINE)
     fun getTopHeadline(@Query(QUERY_COUNRTY) country : String,
-                       @Query(QUERY_CATEGORY) category : String): Call<News>
+                       @Query(QUERY_CATEGORY) category : String): Deferred<News>
 
     @GET(URL_EVERYTHING)
     fun getEverything(@Query(QUERY_CATEGORY) category : String,
-                      @Query(QUERY_SERACH) q : String): Call<News>
+                      @Query(QUERY_SERACH) q : String): Deferred<News>
 
 }

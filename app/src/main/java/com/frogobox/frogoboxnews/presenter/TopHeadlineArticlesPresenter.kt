@@ -33,19 +33,11 @@ import java.lang.Exception
  * id.amirisback.frogobox
  */
 class TopHeadlineArticlesPresenter(application: Application,
-                                    articlesResult : ArticlesView) :
+                                    val country:String, val category:String) :
                                     BasePresenter<ArticlesContract.View>(application),
                                     ArticlesContract.TopHeadlinePresenter{
 
-    val apiResponse : ApiResponse = ArticleApiServiceCall(articlesResult)
-
-    private lateinit var country: String
-    private lateinit var category: String
-
-    fun setParam(country: String, category: String) {
-        this.country = country
-        this.category = category
-    }
+    val apiResponse : ApiResponse = ArticleApiServiceCall()
 
     override fun onStart() {
         super.onStart()

@@ -14,19 +14,16 @@ import com.frogobox.frogoboxnews.presenter.TopHeadlineArticlesPresenter
 import com.frogobox.frogoboxnews.view.activities.NewsDetailActivity
 import com.frogobox.frogoboxnews.view.adapters.recyclerview.RecyclerViewAdapter
 import com.frogobox.frogoboxnews.view.interfaces.contract.ArticlesContract
-import com.frogobox.frogoboxnews.view.interfaces.repository.ArticlesView
 import kotlinx.android.synthetic.main.fragment_top_headline_general.*
 import org.jetbrains.anko.support.v4.startActivity
 
-class TopHeadlineGeneralFragment : BaseFragment<ArticlesContract.TopHeadlinePresenter, ArticlesContract.View>(), ArticlesView, ArticlesContract.View {
+class TopHeadlineGeneralFragment : BaseFragment<ArticlesContract.TopHeadlinePresenter, ArticlesContract.View>(), ArticlesContract.View {
 
     private var articlesList: MutableList<Articles> = mutableListOf()
     private lateinit var adapter: RecyclerViewAdapter
 
     override fun createPresenter(): ArticlesContract.TopHeadlinePresenter {
-        val presenter = TopHeadlineArticlesPresenter(activity!!.application, this)
-        presenter.setParam("in","general")
-        return presenter
+        return TopHeadlineArticlesPresenter(activity!!.application, "in", "general")
     }
 
     override fun onCreateView(
@@ -40,23 +37,19 @@ class TopHeadlineGeneralFragment : BaseFragment<ArticlesContract.TopHeadlinePres
         frg_gen_recyclerview.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL ,false)
     }
 
-    override fun onGetArticles(articles: List<Articles>) {
-        articlesList.addAll(articles)
-    }
-
-    override fun onFailed(message: String) {
-
-    }
-
     override fun displayProgressIndicator() {
         frg_gen_progressbar.visibility = View.VISIBLE
+
+        Toast.makeText(context, "Berhasil", Toast.LENGTH_SHORT).show()
     }
 
     override fun hideProgressIndicator() {
         frg_gen_progressbar.visibility = View.GONE
     }
 
-    override fun onDisplayArticles(listener: Unit) {
+    override fun onDisplayArticles(articles: List<Articles>) {
+        articlesList.clear()
+        articlesList.addAll(articles)
         adapter = RecyclerViewAdapter(context, articlesList){
             startActivity<NewsDetailActivity>(NewsDetailActivity.EXTRA_ARTICLES to it)
         }

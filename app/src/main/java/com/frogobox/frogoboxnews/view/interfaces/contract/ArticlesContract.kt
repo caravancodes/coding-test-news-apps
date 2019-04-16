@@ -24,7 +24,7 @@ interface ArticlesContract {
     interface View: BaseContractView {
         fun displayProgressIndicator()
         fun hideProgressIndicator()
-        fun onDisplayArticles(listener: Unit)
+        fun onDisplayArticles(articles: List<Articles>)
         fun onDisplayErrorMessage(message: String)
     }
 
