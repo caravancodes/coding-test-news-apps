@@ -41,9 +41,9 @@ class ArticleApiServiceCall(): ApiResponse {
         }
     }
 
-    override suspend fun getEverything(category: String, q: String): List<Articles> {
+    override suspend fun getEverything(q: String): List<Articles> {
         try {
-            val result = newsDbApi.getEverything(category, q).await()
+            val result = newsDbApi.getEverything(q).await()
             return result.articles.map {
                 it.toArticles()
             }

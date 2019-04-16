@@ -34,8 +34,7 @@ import java.lang.Exception
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-class EverythingArticlesPresenter(application: Application,
-                                  val category:String, val q:String) :
+class EverythingArticlesPresenter(application: Application, val q:String) :
                                     BasePresenter<ArticlesContract.View>(application),
                                     ArticlesContract.EverythingPresenter{
 
@@ -44,6 +43,7 @@ class EverythingArticlesPresenter(application: Application,
 
     override fun onCreate() {
         super.onCreate()
+        onGetEverything()
     }
 
     override fun onStart() {
@@ -58,7 +58,7 @@ class EverythingArticlesPresenter(application: Application,
         view?.displayProgressIndicator()
         GlobalScope.launch(Dispatchers.Main) {
             try {
-                val articleList = apiResponse.getEverything(category, q)
+                val articleList = apiResponse.getEverything(q)
                 Log.d("GET DATA", ON_GET_DATA)
                 view?.onDisplayArticles(articleList)
                 view?.hideProgressIndicator()

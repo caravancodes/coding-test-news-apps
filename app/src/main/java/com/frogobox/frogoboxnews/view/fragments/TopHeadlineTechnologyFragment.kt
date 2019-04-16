@@ -15,6 +15,7 @@ import com.frogobox.frogoboxnews.view.activities.NewsDetailActivity
 import com.frogobox.frogoboxnews.view.adapters.recyclerview.RecyclerViewAdapter
 import com.frogobox.frogoboxnews.view.interfaces.contract.ArticlesContract
 import kotlinx.android.synthetic.main.fragment_top_headline_technology.*
+import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.support.v4.startActivity
 
 
@@ -40,8 +41,13 @@ class TopHeadlineTechnologyFragment : BaseFragment<ArticlesContract.TopHeadlineP
         }
         frg_tech_recyclerview.adapter = adapter
         frg_tech_recyclerview.layoutManager = LinearLayoutManager(context)
-    }
 
+        frg_tech_swiperefresh.onRefresh {
+            presenter.onGetTopHeadline()
+            frg_tech_progressbar.visibility = View.GONE
+        }
+
+    }
 
     override fun displayProgressIndicator() {
         frg_tech_progressbar.visibility = View.VISIBLE
@@ -49,11 +55,13 @@ class TopHeadlineTechnologyFragment : BaseFragment<ArticlesContract.TopHeadlineP
 
     override fun hideProgressIndicator() {
         frg_tech_progressbar.visibility = View.GONE
+        frg_tech_swiperefresh.isRefreshing = false
     }
 
     override fun onDisplayArticles(articles: List<Articles>) {
         articlesList.clear()
         articlesList.addAll(articles)
+        frg_tech_swiperefresh.isRefreshing = false
     }
 
     override fun onDisplayErrorMessage(message: String) {

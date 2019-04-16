@@ -15,10 +15,10 @@ import com.frogobox.frogoboxnews.view.activities.NewsDetailActivity
 import com.frogobox.frogoboxnews.view.adapters.recyclerview.RecyclerViewAdapter
 import com.frogobox.frogoboxnews.view.interfaces.contract.ArticlesContract
 import kotlinx.android.synthetic.main.fragment_top_headline_general.*
+import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.support.v4.startActivity
 
-class TopHeadlineGeneralFragment : BaseFragment<ArticlesContract.TopHeadlinePresenter, ArticlesContract.View>(),
-    ArticlesContract.View {
+class TopHeadlineGeneralFragment : BaseFragment<ArticlesContract.TopHeadlinePresenter, ArticlesContract.View>(), ArticlesContract.View {
 
     private var articlesList: MutableList<Articles> = mutableListOf()
     private lateinit var adapter: RecyclerViewAdapter
@@ -40,6 +40,11 @@ class TopHeadlineGeneralFragment : BaseFragment<ArticlesContract.TopHeadlinePres
         }
         frg_gen_recyclerview.adapter = adapter
         frg_gen_recyclerview.layoutManager = LinearLayoutManager(context)
+
+        frg_gen_swiperefresh.onRefresh {
+            frg_gen_progressbar.visibility = View.GONE
+            presenter.onGetTopHeadline()
+        }
     }
 
     override fun displayProgressIndicator() {
@@ -48,12 +53,13 @@ class TopHeadlineGeneralFragment : BaseFragment<ArticlesContract.TopHeadlinePres
 
     override fun hideProgressIndicator() {
         frg_gen_progressbar.visibility = View.GONE
+        frg_gen_swiperefresh.isRefreshing = false
     }
 
     override fun onDisplayArticles(articles: List<Articles>) {
         articlesList.clear()
         articlesList.addAll(articles)
-
+        frg_gen_swiperefresh.isRefreshing = false
     }
 
     override fun onDisplayErrorMessage(message: String) {

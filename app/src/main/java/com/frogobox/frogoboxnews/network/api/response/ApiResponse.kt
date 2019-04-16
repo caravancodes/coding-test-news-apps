@@ -25,6 +25,6 @@ import retrofit2.http.Query
 interface ApiResponse {
 
     suspend fun getTopHeadline(country : String, category : String) : List<Articles>
-    suspend fun getEverything(category : String, q : String) : List<Articles>
+    suspend fun getEverything(q : String) : List<Articles>
 
 }

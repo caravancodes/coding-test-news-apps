@@ -34,7 +34,6 @@ interface ApiService {
                        @Query(QUERY_CATEGORY) category : String): Deferred<News>
 
     @GET(URL_EVERYTHING)
-    fun getEverything(@Query(QUERY_CATEGORY) category : String,
-                      @Query(QUERY_SERACH) q : String): Deferred<News>
+    fun getEverything(@Query(QUERY_SERACH) q : String): Deferred<News>
 
 }
