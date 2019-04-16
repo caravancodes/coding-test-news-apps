@@ -9,4 +9,7 @@
     <string name="tab_general">General</string>
     <string name="tab_technology">Technology</string>
     <string name="text_content">Content</string>
+    <string name="title_detail_news">Detail News</string>
+    <string name="text_author">Author</string>
+    <string name="text_description">Description</string>
 </resources>

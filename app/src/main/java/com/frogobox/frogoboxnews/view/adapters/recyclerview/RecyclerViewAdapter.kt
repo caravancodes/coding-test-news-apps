@@ -49,7 +49,7 @@ class RecyclerViewAdapter (private val context: Context?, private val data: List
 
         fun bindItem(articlesList: Articles, listener: (Articles) -> Unit) {
             ctnTitle.text = articlesList.title
-            ctnAuthor.text = articlesList.author
+            ctnAuthor.text = articlesList.publishedAt
             ctnDescription.text = articlesList.description
             Picasso.get().load(articlesList.urlToImage).into(ctnPoster)
             itemView.setOnClickListener {
