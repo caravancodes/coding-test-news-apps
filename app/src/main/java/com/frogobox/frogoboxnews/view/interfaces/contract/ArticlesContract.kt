@@ -30,12 +30,12 @@ interface ArticlesContract {
 
     interface TopHeadlinePresenter: BaseContractPresenter<View> {
         fun setupView()
-        fun onGetTopHeadline(country : String, category : String)
+        fun onGetTopHeadline()
     }
 
     interface EverythingPresenter: BaseContractPresenter<View> {
         fun setupView()
-        fun onGetEverything(category : String, q : String)
+        fun onGetEverything()
     }
 
 }

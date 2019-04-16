@@ -23,6 +23,6 @@ import com.frogobox.frogoboxnews.model.News
 interface ArticlesView {
 
     fun onGetArticles(articles : List<Articles>)
-    fun onFailed(messageEror: String)
+    fun onFailed(message: String)
 
 }

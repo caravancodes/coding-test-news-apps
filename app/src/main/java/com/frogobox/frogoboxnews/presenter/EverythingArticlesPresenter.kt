@@ -39,6 +39,14 @@ class EverythingArticlesPresenter(application: Application,
 
     val apiResponse : ApiResponse = ArticleApiServiceCall(articlesResult)
 
+    private lateinit var q: String
+    private lateinit var category: String
+
+    fun setParam(country: String, q: String) {
+        this.q = country
+        this.category = category
+    }
+
     override fun onStart() {
         super.onStart()
         Timber.d(ON_START_PRESENTER)
@@ -53,7 +61,7 @@ class EverythingArticlesPresenter(application: Application,
     override fun onDetach() {
     }
 
-    override fun onGetEverything(category: String, q: String) {
+    override fun onGetEverything() {
         view?.displayProgressIndicator()
         GlobalScope.launch(Dispatchers.Main) {
             try {

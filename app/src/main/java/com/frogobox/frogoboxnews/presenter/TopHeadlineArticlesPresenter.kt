@@ -33,11 +33,19 @@ import java.lang.Exception
  * id.amirisback.frogobox
  */
 class TopHeadlineArticlesPresenter(application: Application,
-                                   var articlesResult : ArticlesView) :
+                                    articlesResult : ArticlesView) :
                                     BasePresenter<ArticlesContract.View>(application),
                                     ArticlesContract.TopHeadlinePresenter{
 
     val apiResponse : ApiResponse = ArticleApiServiceCall(articlesResult)
+
+    private lateinit var country: String
+    private lateinit var category: String
+
+    fun setParam(country: String, category: String) {
+        this.country = country
+        this.category = category
+    }
 
     override fun onStart() {
         super.onStart()
@@ -53,7 +61,7 @@ class TopHeadlineArticlesPresenter(application: Application,
     override fun onDetach() {
     }
 
-    override fun onGetTopHeadline(country: String, category: String) {
+    override fun onGetTopHeadline() {
         view?.displayProgressIndicator()
         GlobalScope.launch(Dispatchers.Main) {
             try {
