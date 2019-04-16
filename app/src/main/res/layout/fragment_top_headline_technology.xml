@@ -12,15 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <Spinner
-                android:id="@+id/frg_tech_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_margin="@dimen/dimen_small">
-        </Spinner>
-
         <androidx.recyclerview.widget.RecyclerView
-                android:layout_below="@id/frg_tech_spinner"
                 android:id="@+id/frg_tech_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

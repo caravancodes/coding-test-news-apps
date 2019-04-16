@@ -5,7 +5,7 @@ package com.frogobox.frogoboxnews.base
  */
 
 interface BaseContractPresenter<V: BaseContractView> {
-    fun onAttach(view: V)
-    fun onDetach()
+    fun bind(view: V)
+    fun unbind()
 }
 

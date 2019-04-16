@@ -17,6 +17,5 @@ package com.frogobox.frogoboxnews.base
  */
 
 interface BaseContractView {
-    fun onAttachView()
-    fun onDetachView()
+
 }

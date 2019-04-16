@@ -43,6 +43,7 @@
                 android:src="@drawable/tools_image_view"/>
 
         <TextView
+                android:layout_marginTop="@dimen/dimen_small"
                 android:id="@+id/ctn_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -1,4 +1,7 @@
-package com.frogobox.frogoboxnews.model
+package com.frogobox.frogoboxnews.helper
+
+import com.frogobox.frogoboxnews.model.Articles
+import com.frogobox.frogoboxnews.model.ArticlesDao
 
 /**
  * Created by Faisal Amir
@@ -15,12 +18,14 @@ package com.frogobox.frogoboxnews.model
  * -----------------------------------------
  * FrogoBox Software Industries
  */
-fun ArticlesDao.toArticles(): Articles = Articles(
-    this.source,
-    this.author,
-    this.title,
-    this.description,
-    this.url,
-    this.urlToImage,
-    this.publishedAt,
-    this.content)
+fun ArticlesDao.toArticles(): Articles =
+    Articles(
+        this.source,
+        this.author,
+        this.title,
+        this.description,
+        this.url,
+        this.urlToImage,
+        this.publishedAt,
+        this.content
+    )

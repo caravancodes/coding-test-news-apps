@@ -1,14 +1,10 @@
 package com.frogobox.frogoboxnews.network.api.call
 
 import com.frogobox.frogoboxnews.model.Articles
-import com.frogobox.frogoboxnews.model.News
-import com.frogobox.frogoboxnews.model.toArticles
+import com.frogobox.frogoboxnews.helper.toArticles
 import com.frogobox.frogoboxnews.network.api.response.ApiResponse
 import com.frogobox.frogoboxnews.network.api.service.ApiService
 import com.frogobox.frogoboxnews.network.bridge.ApiClient
-import com.frogobox.frogoboxnews.view.interfaces.repository.ArticlesView
-import retrofit2.Call
-import retrofit2.Response
 import timber.log.Timber
 import java.lang.Exception
 
