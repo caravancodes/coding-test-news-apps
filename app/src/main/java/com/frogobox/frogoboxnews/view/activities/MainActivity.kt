@@ -1,7 +1,10 @@
 package com.frogobox.frogoboxnews.view.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.frogobox.frogoboxnews.R
 import com.frogobox.frogoboxnews.view.fragments.EverythingFragment
@@ -40,4 +43,23 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.act_main_container, fragment)
             .commit()
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_toolbar_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+
+            R.id.toolbar_about -> {
+                val i = Intent(this, AboutApiActivity::class.java)
+                startActivity(i)
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
 }

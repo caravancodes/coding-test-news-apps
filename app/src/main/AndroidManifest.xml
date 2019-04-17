@@ -11,6 +11,8 @@
             android:roundIcon="@drawable/ic_news_launcher"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".view.activities.AboutApiActivity">
+        </activity>
         <activity android:name=".view.activities.NewsDetailActivity">
         </activity>
         <activity android:name=".view.activities.MainActivity">

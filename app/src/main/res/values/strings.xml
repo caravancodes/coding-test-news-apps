@@ -15,4 +15,6 @@
     <string name="text_category_general">Breaking news</string>
     <string name="text_category_science">Science category</string>
     <string name="text_category_sport">Sport category</string>
+    <string name="title_about_api">About Api</string>
+    <string name="text_link_api">https://newsapi.org/</string>
 </resources>
