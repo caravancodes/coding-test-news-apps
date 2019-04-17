@@ -34,7 +34,7 @@ import java.lang.Exception
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-class EverythingArticlesPresenter(application: Application, val q:String) :
+class EverythingArticlesPresenter(application: Application) :
                                     BasePresenter<ArticlesContract.View>(application),
                                     ArticlesContract.EverythingPresenter{
 
@@ -43,7 +43,7 @@ class EverythingArticlesPresenter(application: Application, val q:String) :
 
     override fun onCreate() {
         super.onCreate()
-        onGetEverything()
+        onGetEverything("onepiece")
     }
 
     override fun onStart() {
@@ -54,7 +54,7 @@ class EverythingArticlesPresenter(application: Application, val q:String) :
     override fun setupView() {
     }
 
-    override fun onGetEverything() {
+    override fun onGetEverything(q : String) {
         view?.displayProgressIndicator()
         GlobalScope.launch(Dispatchers.Main) {
             try {

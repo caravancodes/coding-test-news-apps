@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by 
+ * FrogoBox Inc License
+ * =========================================
+ * 
+ * Copyright (C) .      
+ * All rights reserved
+ * 
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Line     : bullbee117
+ * Phone    : 081357108568
+ * Majors   : D3 Teknik Informatika 2016
+ * Campus   : Telkom University
+ * 
+ * id.amirisback.frogobox
+ * 
+ -->
+
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/dimen_medium"
+        android:layout_marginStart="@dimen/dimen_big">
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/dimen_big">
+
+        <ImageView
+                android:id="@+id/ctn_poster"
+                android:layout_width="200dp"
+                android:layout_height="128dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/tools_image_view"/>
+
+        <TextView
+                android:layout_marginTop="@dimen/dimen_small"
+                android:id="@+id/ctn_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title_small"
+                tools:text="@string/dummy_string"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:maxLines="1"/>
+
+        <TextView
+                android:id="@+id/ctn_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_medium"
+                android:maxLines="1"
+                android:textColor="@color/colorAccent"
+                tools:text="@string/dummy_string"/>
+
+        <TextView
+                android:id="@+id/ctn_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_medium"
+                tools:text="@string/dummy_string"
+                android:textColor="@color/colorPrimary"
+                android:maxLines="1"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

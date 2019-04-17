@@ -1,28 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/frg_gen_swiperefresh"
         android:background="@color/colorBackground">
 
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <ScrollView android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/frg_gen_recyclerview"
+        <RelativeLayout
+                android:paddingBottom="@dimen/dimen_medium"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:listitem="@layout/content_list_news" />
+                android:layout_height="wrap_content">
 
-        <ProgressBar
-                android:id="@+id/frg_gen_progressbar"
-                android:layout_centerInParent="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <View android:layout_width="match_parent"
+                  android:layout_height="128dp"
+                  android:background="@color/colorBackgroundRed"/>
 
-    </RelativeLayout>
+            <TextView
+                    android:visibility="invisible"
+                    android:id="@+id/view_text_general"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextWhite"
+                    android:textSize="@dimen/title_big"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/dimen_big"
+                    android:layout_marginStart="@dimen/dimen_big"
+                    android:text="@string/text_category_general"/>
 
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_below="@id/view_text_general"
+                    android:id="@+id/frg_gen_recyclerview_general"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_height_recyclerview" />
+
+            <TextView
+                    android:visibility="invisible"
+                    android:layout_below="@id/frg_gen_recyclerview_general"
+                    android:id="@+id/view_text_science"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="@dimen/title_big"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/dimen_big"
+                    android:layout_marginStart="@dimen/dimen_big"
+                    android:text="@string/text_category_science"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_below="@id/view_text_science"
+                    android:id="@+id/frg_gen_recyclerview_science"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_height_recyclerview" />
+
+            <TextView
+                    android:visibility="invisible"
+                    android:layout_below="@id/frg_gen_recyclerview_science"
+                    android:id="@+id/view_text_sport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="@dimen/title_big"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/dimen_big"
+                    android:layout_marginStart="@dimen/dimen_big"
+                    android:text="@string/text_category_sport"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_below="@id/view_text_sport"
+                    android:id="@+id/frg_gen_recyclerview_sport"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_height_recyclerview" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+            android:id="@+id/frg_gen_progressbar"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+</RelativeLayout>

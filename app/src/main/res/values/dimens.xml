@@ -56,5 +56,6 @@
     <dimen name="text_small">10sp</dimen>
     <dimen name="min_height_info">300dp</dimen>
     <dimen name="min_height_list_bimbingan">95dp</dimen>
+    <dimen name="dimen_height_recyclerview">200dp</dimen>
 
 </resources>

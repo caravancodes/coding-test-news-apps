@@ -28,11 +28,11 @@ import kotlinx.android.synthetic.main.content_list_news.view.*
  * id.amirisback.frogobox
  */
 
-class RecyclerViewAdapter (private val context: Context?, private val data: List<Articles>, private var listener :
+class RecyclerViewAdapter (private val layoutStyle: Int, private val context: Context?, private val data: List<Articles>, private var listener :
     (Articles) -> Unit) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolder(LayoutInflater.from(context).inflate(R.layout.content_list_news, parent, false))
+        ViewHolder(LayoutInflater.from(context).inflate(layoutStyle, parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItem(data[position], listener)

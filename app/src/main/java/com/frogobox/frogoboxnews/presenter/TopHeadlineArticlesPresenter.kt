@@ -34,17 +34,11 @@ import java.lang.Exception
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-class TopHeadlineArticlesPresenter(application: Application,
-                                    val country:String, val category:String) :
+class TopHeadlineArticlesPresenter(application: Application) :
                                     BasePresenter<ArticlesContract.View>(application),
                                     ArticlesContract.TopHeadlinePresenter{
 
     val apiResponse : ApiResponse = ArticleApiServiceCall()
-
-    override fun onCreate() {
-        super.onCreate()
-        onGetTopHeadline()
-    }
 
     override fun onStart() {
         super.onStart()
@@ -54,7 +48,7 @@ class TopHeadlineArticlesPresenter(application: Application,
     override fun setupView() {
     }
 
-    override fun onGetTopHeadline() {
+    override fun onGetTopHeadline(country : String, category : String) {
         view?.displayProgressIndicator()
         GlobalScope.launch(Dispatchers.Main) {
             try {

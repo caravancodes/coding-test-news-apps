@@ -25,7 +25,7 @@ class TopHeadlineTechnologyFragment : BaseFragment<ArticlesContract.TopHeadlineP
     private lateinit var adapter: RecyclerViewAdapter
 
     override fun createPresenter(): ArticlesContract.TopHeadlinePresenter {
-        return TopHeadlineArticlesPresenter(activity!!.application, "in", "technology")
+        return TopHeadlineArticlesPresenter(activity!!.application)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -36,14 +36,16 @@ class TopHeadlineTechnologyFragment : BaseFragment<ArticlesContract.TopHeadlineP
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = RecyclerViewAdapter(context, articlesList){
+        presenter.onGetTopHeadline("in", "technology")
+
+        adapter = RecyclerViewAdapter(R.layout.content_list_news, context, articlesList){
             startActivity<NewsDetailActivity>(NewsDetailActivity.EXTRA_ARTICLES to it)
         }
         frg_tech_recyclerview.adapter = adapter
         frg_tech_recyclerview.layoutManager = LinearLayoutManager(context)
 
         frg_tech_swiperefresh.onRefresh {
-            presenter.onGetTopHeadline()
+            presenter.onGetTopHeadline("in", "general")
             frg_tech_progressbar.visibility = View.GONE
         }
 
@@ -61,6 +63,7 @@ class TopHeadlineTechnologyFragment : BaseFragment<ArticlesContract.TopHeadlineP
     override fun onDisplayArticles(articles: List<Articles>) {
         articlesList.clear()
         articlesList.addAll(articles)
+        adapter.notifyDataSetChanged()
         frg_tech_swiperefresh.isRefreshing = false
     }
 

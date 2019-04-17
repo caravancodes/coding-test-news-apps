@@ -25,7 +25,7 @@ class EverythingFragment : BaseFragment<ArticlesContract.EverythingPresenter, Ar
     private lateinit var adapter: RecyclerViewAdapter
 
     override fun createPresenter(): ArticlesContract.EverythingPresenter {
-        return EverythingArticlesPresenter(activity!!.application, "onepiece")
+        return EverythingArticlesPresenter(activity!!.application)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -36,7 +36,9 @@ class EverythingFragment : BaseFragment<ArticlesContract.EverythingPresenter, Ar
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = RecyclerViewAdapter(context, articlesList){
+        presenter.onGetEverything("onepiece")
+
+        adapter = RecyclerViewAdapter(R.layout.content_list_news, context, articlesList){
             startActivity<NewsDetailActivity>(NewsDetailActivity.EXTRA_ARTICLES to it)
         }
         frg_everything_recyclerview.adapter = adapter
@@ -44,7 +46,7 @@ class EverythingFragment : BaseFragment<ArticlesContract.EverythingPresenter, Ar
 
         frg_everything_swiperefresh.onRefresh {
             frg_everything_progressbar.visibility = View.GONE
-            presenter.onGetEverything()
+            presenter.onGetEverything("onepiece")
         }
 
     }
@@ -61,6 +63,7 @@ class EverythingFragment : BaseFragment<ArticlesContract.EverythingPresenter, Ar
     override fun onDisplayArticles(articles: List<Articles>) {
         articlesList.clear()
         articlesList.addAll(articles)
+        adapter.notifyDataSetChanged()
         frg_everything_swiperefresh.isRefreshing = false
     }
 

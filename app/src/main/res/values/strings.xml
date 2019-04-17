@@ -12,4 +12,7 @@
     <string name="title_detail_news">Detail News</string>
     <string name="text_author">Author</string>
     <string name="text_description">Description</string>
+    <string name="text_category_general">Breaking news</string>
+    <string name="text_category_science">Science category</string>
+    <string name="text_category_sport">Sport category</string>
 </resources>
