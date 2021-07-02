@@ -1,6 +1,7 @@
 package com.frogobox.frogoboxnews.view.fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,13 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.frogobox.frogoboxnews.R
 import com.frogobox.frogoboxnews.base.BaseFragment
 import com.frogobox.frogoboxnews.model.Articles
+import com.frogobox.frogoboxnews.model.News
 import com.frogobox.frogoboxnews.presenter.TopHeadlineArticlesPresenter
 import com.frogobox.frogoboxnews.view.activities.NewsDetailActivity
 import com.frogobox.frogoboxnews.view.adapters.recyclerview.RecyclerViewAdapter
 import com.frogobox.frogoboxnews.view.interfaces.contract.ArticlesContract
 import kotlinx.android.synthetic.main.fragment_top_headline_general.*
-import org.jetbrains.anko.support.v4.onRefresh
-import org.jetbrains.anko.support.v4.startActivity
 
 class TopHeadlineGeneralFragment : BaseFragment<ArticlesContract.TopHeadlinePresenter, ArticlesContract.View>(), ArticlesContract.View {
 
@@ -30,7 +30,7 @@ class TopHeadlineGeneralFragment : BaseFragment<ArticlesContract.TopHeadlinePres
     private lateinit var adapterScience: RecyclerViewAdapter
 
     override fun createPresenter(): ArticlesContract.TopHeadlinePresenter {
-        return TopHeadlineArticlesPresenter(activity!!.application)
+        return TopHeadlineArticlesPresenter(requireActivity().application)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -44,15 +44,15 @@ class TopHeadlineGeneralFragment : BaseFragment<ArticlesContract.TopHeadlinePres
         initDataArrayList()
 
         adapterGeneral = RecyclerViewAdapter(R.layout.content_list_news_horizontal,context, articlesList){
-            startActivity<NewsDetailActivity>(NewsDetailActivity.EXTRA_ARTICLES to it)
+            intentTo(it)
         }
 
         adapterSport = RecyclerViewAdapter(R.layout.content_list_news_horizontal,context, articlesList){
-            startActivity<NewsDetailActivity>(NewsDetailActivity.EXTRA_ARTICLES to it)
+            intentTo(it)
         }
 
         adapterScience = RecyclerViewAdapter(R.layout.content_list_news_horizontal,context, articlesList){
-            startActivity<NewsDetailActivity>(NewsDetailActivity.EXTRA_ARTICLES to it)
+            intentTo(it)
         }
 
         frg_gen_recyclerview_general.adapter = adapterGeneral
@@ -67,6 +67,12 @@ class TopHeadlineGeneralFragment : BaseFragment<ArticlesContract.TopHeadlinePres
 //            frg_gen_progressbar.visibility = View.GONE
 //            initDataArrayList()
 //        }
+    }
+
+    private fun intentTo(data: Articles) {
+        val intent = Intent(requireContext(), NewsDetailActivity::class.java)
+        intent.putExtra(NewsDetailActivity.EXTRA_ARTICLES, data)
+        startActivity(intent)
     }
 
     fun initDataArrayList(){

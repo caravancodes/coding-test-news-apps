@@ -1,6 +1,7 @@
 package com.frogobox.frogoboxnews.view.fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,19 +17,23 @@ import com.frogobox.frogoboxnews.view.activities.NewsDetailActivity
 import com.frogobox.frogoboxnews.view.adapters.recyclerview.RecyclerViewAdapter
 import com.frogobox.frogoboxnews.view.interfaces.contract.ArticlesContract
 import kotlinx.android.synthetic.main.fragment_everything.*
-import org.jetbrains.anko.support.v4.onRefresh
-import org.jetbrains.anko.support.v4.startActivity
 
-class EverythingFragment : BaseFragment<ArticlesContract.EverythingPresenter, ArticlesContract.View>(), ArticlesContract.View {
+class EverythingFragment :
+    BaseFragment<ArticlesContract.EverythingPresenter, ArticlesContract.View>(),
+    ArticlesContract.View {
 
     private var articlesList: MutableList<Articles> = mutableListOf()
     private lateinit var adapter: RecyclerViewAdapter
 
     override fun createPresenter(): ArticlesContract.EverythingPresenter {
-        return EverythingArticlesPresenter(activity!!.application)
+        return EverythingArticlesPresenter(requireActivity().application)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_everything, container, false)
     }
@@ -38,17 +43,20 @@ class EverythingFragment : BaseFragment<ArticlesContract.EverythingPresenter, Ar
 
         presenter.onGetEverything("onepiece")
 
-        adapter = RecyclerViewAdapter(R.layout.content_list_news, context, articlesList){
-            startActivity<NewsDetailActivity>(NewsDetailActivity.EXTRA_ARTICLES to it)
+        adapter = RecyclerViewAdapter(R.layout.content_list_news, context, articlesList) {
+
+            val intent = Intent(requireContext(), NewsDetailActivity::class.java)
+            intent.putExtra(NewsDetailActivity.EXTRA_ARTICLES, it)
+            startActivity(intent)
         }
         frg_everything_recyclerview.adapter = adapter
         frg_everything_recyclerview.layoutManager = LinearLayoutManager(context)
 
-        frg_everything_swiperefresh.onRefresh {
+        frg_everything_swiperefresh.setOnRefreshListener {
             frg_everything_progressbar.visibility = View.GONE
             presenter.onGetEverything("onepiece")
-        }
 
+        }
     }
 
     override fun displayProgressIndicator() {

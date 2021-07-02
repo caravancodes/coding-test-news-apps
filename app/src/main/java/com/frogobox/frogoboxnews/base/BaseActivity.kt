@@ -51,7 +51,7 @@ abstract class BaseActivity<T, V>: AppCompatActivity(), LifecycleObserver where 
     }
 
 
-    override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
         super.onSaveInstanceState(outState, outPersistentState)
         (presenterInstance as BasePresenter<*>).savedState = outState
         (presenterInstance as BasePresenter<*>).onSaveState(outState!!)

@@ -22,15 +22,15 @@ class NewsDetailActivity : AppCompatActivity() {
         setTitle(R.string.title_detail_news)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        if (intent.hasExtra(NewsDetailActivity.EXTRA_ARTICLES)) {
+        if (intent.hasExtra(EXTRA_ARTICLES)) {
             // -------------------------------------------------------------------------------------
-            val extraArticles = intent.getParcelableExtra<Articles>(NewsDetailActivity.EXTRA_ARTICLES)
-            val extraArticlesTitle = extraArticles.title
-            val extraArticlesAuthor = extraArticles.author
-            val extraArticlesDescription = extraArticles.description
-            val extraArticlesDate = extraArticles.publishedAt
-            val extraArticlesContent = extraArticles.content
-            val extraArticlesPoster = extraArticles.urlToImage
+            val extraArticles = intent.getParcelableExtra<Articles>(EXTRA_ARTICLES)
+            val extraArticlesTitle = extraArticles?.title
+            val extraArticlesAuthor = extraArticles?.author
+            val extraArticlesDescription = extraArticles?.description
+            val extraArticlesDate = extraArticles?.publishedAt
+            val extraArticlesContent = extraArticles?.content
+            val extraArticlesPoster = extraArticles?.urlToImage
 
             act_detail_title.text = extraArticlesTitle
             act_detail_author.text = extraArticlesAuthor

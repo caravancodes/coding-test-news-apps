@@ -1,6 +1,7 @@
 package com.frogobox.frogoboxnews.view.fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,8 +16,6 @@ import com.frogobox.frogoboxnews.view.activities.NewsDetailActivity
 import com.frogobox.frogoboxnews.view.adapters.recyclerview.RecyclerViewAdapter
 import com.frogobox.frogoboxnews.view.interfaces.contract.ArticlesContract
 import kotlinx.android.synthetic.main.fragment_top_headline_technology.*
-import org.jetbrains.anko.support.v4.onRefresh
-import org.jetbrains.anko.support.v4.startActivity
 
 
 class TopHeadlineTechnologyFragment : BaseFragment<ArticlesContract.TopHeadlinePresenter, ArticlesContract.View>(), ArticlesContract.View {
@@ -25,7 +24,7 @@ class TopHeadlineTechnologyFragment : BaseFragment<ArticlesContract.TopHeadlineP
     private lateinit var adapter: RecyclerViewAdapter
 
     override fun createPresenter(): ArticlesContract.TopHeadlinePresenter {
-        return TopHeadlineArticlesPresenter(activity!!.application)
+        return TopHeadlineArticlesPresenter(requireActivity().application)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -39,12 +38,15 @@ class TopHeadlineTechnologyFragment : BaseFragment<ArticlesContract.TopHeadlineP
         presenter.onGetTopHeadline("in", "technology")
 
         adapter = RecyclerViewAdapter(R.layout.content_list_news, context, articlesList){
-            startActivity<NewsDetailActivity>(NewsDetailActivity.EXTRA_ARTICLES to it)
+
+            val intent = Intent(requireContext(), NewsDetailActivity::class.java)
+            intent.putExtra(NewsDetailActivity.EXTRA_ARTICLES, it)
+            startActivity(intent)
         }
         frg_tech_recyclerview.adapter = adapter
         frg_tech_recyclerview.layoutManager = LinearLayoutManager(context)
 
-        frg_tech_swiperefresh.onRefresh {
+        frg_tech_swiperefresh.setOnRefreshListener {
             presenter.onGetTopHeadline("in", "general")
             frg_tech_progressbar.visibility = View.GONE
         }

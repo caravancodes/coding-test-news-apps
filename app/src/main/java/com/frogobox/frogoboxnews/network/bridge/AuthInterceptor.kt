@@ -9,7 +9,7 @@ class AuthInterceptor: Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val original = chain.request()
 
-        val httpUrl = original.url().newBuilder()
+        val httpUrl = original.url.newBuilder()
             .addQueryParameter(QUERY_API_KEY, API_KEY)
             .build()
 
