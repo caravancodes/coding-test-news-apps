@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.frogobox.frogoboxnews">
+          package="com.frogobox.news">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -11,11 +11,11 @@
             android:roundIcon="@drawable/ic_news_launcher"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".view.activities.AboutApiActivity">
+        <activity android:name="com.frogobox.news.mvp.about.AboutApiActivity">
         </activity>
-        <activity android:name=".view.activities.NewsDetailActivity">
+        <activity android:name="com.frogobox.news.mvp.detail.NewsDetailActivity">
         </activity>
-        <activity android:name=".view.activities.MainActivity">
+        <activity android:name="com.frogobox.news.mvp.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
